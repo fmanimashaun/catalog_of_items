@@ -3,19 +3,19 @@ require 'date'
 
 describe Item do
   before(:each) do
-    @item = item = Item.new(
+    @item = Item.new(
       genre: 'Fantasy',
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - 11*365).strftime
+      publish_date: (Date.today - (11 * 365)).strftime
     )
     @item_recent = Item.new(
       genre: 'Fantasy',
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date:(Date.today - 5*365).strftime
+      publish_date: (Date.today - (5 * 365)).strftime
     )
   end
 

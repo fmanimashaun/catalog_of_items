@@ -1,6 +1,9 @@
 require 'securerandom'
 
 class Item
+  attr_accessor :genre, :author, :source, :label, :publish_date, :archived
+  attr_reader :id
+
   def initialize(params = {})
     @id = params[:id] || SecureRandom.uuid
     @genre = params[:genre]
