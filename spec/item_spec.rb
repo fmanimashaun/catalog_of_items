@@ -20,15 +20,36 @@ describe Item do
   end
 
   context 'Testing the Item class' do
-    it 'The initialize method should create a item with seven variables' do
+    it 'The initialize method should create a item with 7 variables' do
       expect(@item.instance_variables.length).to eq 7
       expect(@item.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived]
+    end
+
+    it 'The initialize method should create an instance variable of genre' do
       expect(@item.instance_variable_get(:@genre)).to eq 'Fantasy'
+    end
+
+    it 'The initialize method should create an instance variable of author' do
       expect(@item.instance_variable_get(:@author)).to eq 'J.K. Rowling'
+    end
+
+    it 'The initialize method should create an instance variable of source' do
       expect(@item.instance_variable_get(:@source)).to eq 'Bought online'
+    end
+
+    it 'The initialize method should create an instance variable of label' do
       expect(@item.instance_variable_get(:@label)).to eq 'New'
+    end
+
+    it 'The initialize method should create an instance variable of publish_date' do
       expect(@item.instance_variable_get(:@publish_date)).to eq '2012-11-21'
+    end
+
+    it 'The initialize method should create an instance variable of archived' do
       expect(@item.instance_variable_get(:@archived)).to eq false
+    end
+
+    it 'The initialize method should create an instance variable of id' do
       expect(@item.instance_variable_get(:@id)).to be_a String
     end
   end
