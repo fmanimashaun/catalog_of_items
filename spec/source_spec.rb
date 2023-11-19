@@ -1,10 +1,15 @@
 require_relative '../classes/source'
+require_relative '../classes/item'
 
 describe Source do
   before(:each) do
     @source = Source.new(
       name: 'New York Times',
       items: []
+    )
+
+    @item = Item.new(
+      publish_date: '1967-01-01'
     )
   end
 
@@ -24,6 +29,17 @@ describe Source do
 
     it 'The initialize method should create an instance variable of id' do
       expect(@source.instance_variable_get(:@id)).to be_a String
+    end
+  end
+
+  context '#add_item' do
+    it 'The add_item method should add a item to the items array' do
+      @source.add_item(@item)
+      expect(@source.instance_variable_get(:@items).length).to eq 1
+      expect(@source.instance_variable_get(:@items)).to eq [@item]
+      expect(@source.instance_variable_get(:@items).first).to be_a Item
+      expect(@item.instance_variable_get(:@source)).to be_a Source
+      expect(@item.genre).to eq(@source)
     end
   end
 end
