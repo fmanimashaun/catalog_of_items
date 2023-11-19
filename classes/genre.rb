@@ -5,7 +5,7 @@ class Genre
   attr_accessor :name, :items
 
   def initialize(params = {})
-    @id =  params[:id] || SecureRandom.uuid
+    @id = params[:id] || SecureRandom.uuid
     @name = params[:name]
     @items = params[:items] || []
   end
