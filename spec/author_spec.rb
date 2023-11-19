@@ -3,19 +3,24 @@ require_relative '../classes/author'
 describe Author do
   before(:each) do
     @author = Author.new(
-      name: 'J. K. Rowling',
+      first_name : 'Rowling',
+      last_name : 'J. K.',
       items: []
     )
   end
 
   context 'Testing the Author class' do
-    it 'The initialize method should create a item with 3 variables' do
-      expect(@author.instance_variables.length).to eq 3
-      expect(@author.instance_variables).to eq %i[@id @name @items]
+    it 'The initialize method should create a item with 4 variables' do
+      expect(@author.instance_variables.length).to eq 4
+      expect(@author.instance_variables).to eq %i[@id @first_name @last_name @items]
     end
 
-    it 'The initialize method should create an instance variable of name' do
-      expect(@author.instance_variable_get(:@name)).to eq 'J. K. Rowling'
+    it 'The initialize method should create an instance variable of first_name' do
+      expect(@author.instance_variable_get(:@first_name)).to eq 'Rowling'
+    end
+
+    it 'The initialize method should create an instance variable of last_name' do
+      expect(@item.instance_variable_get(:@last_name)).to eq 'J. K.'
     end
 
     it 'The initialize method should create an instance variable of items' do
