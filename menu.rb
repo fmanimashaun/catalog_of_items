@@ -1,5 +1,4 @@
 class Menu
-
   def self.display
     puts "\nWelcome to Media Library Home Page!"
     puts 'Please enter a number: '
