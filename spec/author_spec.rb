@@ -1,4 +1,5 @@
 require_relative '../classes/author'
+require_relative '../classes/item'
 
 describe Author do
   before(:each) do
@@ -6,6 +7,10 @@ describe Author do
       first_name: 'Rowling',
       last_name: 'J. K.',
       items: []
+    )
+
+    @item = Item.new(
+      publish_date: '1967-01-01'
     )
   end
 
@@ -29,6 +34,17 @@ describe Author do
 
     it 'The initialize method should create an instance variable of id' do
       expect(@author.instance_variable_get(:@id)).to be_a String
+    end
+  end
+
+  context '#add_item' do
+    it 'The add_item method should add a item to the items array' do
+      @author.add_item(@item)
+      expect(@author.instance_variable_get(:@items).length).to eq 1
+      expect(@author.instance_variable_get(:@items)).to eq [@item]
+      expect(@author.instance_variable_get(:@items).first).to be_a Item
+      expect(@item.instance_variable_get(:@author)).to be_a Author
+      expect(@item.author).to eq(@author)
     end
   end
 end
