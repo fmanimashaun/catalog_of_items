@@ -20,7 +20,7 @@ describe Author do
     end
 
     it 'The initialize method should create an instance variable of last_name' do
-      expect(@item.instance_variable_get(:@last_name)).to eq 'J. K.'
+      expect(@author.instance_variable_get(:@last_name)).to eq 'J. K.'
     end
 
     it 'The initialize method should create an instance variable of items' do
