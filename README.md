@@ -127,7 +127,7 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-https://github.com/fmanimashaun/school_library/issues
+[Issue Page](https://github.com/fmanimashaun/catalog_of_items/issues)
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
