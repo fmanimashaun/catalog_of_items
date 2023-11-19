@@ -17,7 +17,6 @@ class Item
   def can_be_archived?
     publish_date = Date.parse(@publish_date)
     return false unless publish_date < (Date.today - (10 * 365))
-
-    self.archived = true
+    true
   end
 end
