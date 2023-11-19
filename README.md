@@ -25,7 +25,7 @@
 
 ## 📖 Catalog of My Things command-Line App <a name="about-project"></a>
 
-**Catalog of My Things* is a Ruby group capstone project focused on creating a console app for managing collections of items such as books, music albums, movies, and games. The project emphasizes SQL database integration, UML class diagram implementation, and collaborative group work.
+**Catalog of My Things** is a Ruby group capstone project focused on creating a console app for managing collections of items such as books, music albums, movies, and games. The project emphasizes SQL database integration, UML class diagram implementation, and collaborative group work.
 
 ## 🛠 Built With <a name="built-with"></a>
 
