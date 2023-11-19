@@ -39,7 +39,7 @@ describe Source do
       expect(@source.instance_variable_get(:@items)).to eq [@item]
       expect(@source.instance_variable_get(:@items).first).to be_a Item
       expect(@item.instance_variable_get(:@source)).to be_a Source
-      expect(@item.genre).to eq(@source)
+      expect(@item.source).to eq(@source)
     end
   end
 end

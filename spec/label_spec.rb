@@ -44,7 +44,7 @@ describe Label do
       expect(@label.instance_variable_get(:@items)).to eq [@item]
       expect(@label.instance_variable_get(:@items).first).to be_a Item
       expect(@item.instance_variable_get(:@label)).to be_a Label
-      expect(@item.genre).to eq(@label)
+      expect(@item.label).to eq(@label)
     end
   end
 end
