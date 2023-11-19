@@ -13,4 +13,11 @@ class Item
     @publish_date = params[:publish_date]
     @archived = params[:archived] || false
   end
+
+  def can_be_archived?
+    publish_date = Date.parse(@publish_date)
+    return false unless publish_date < (Date.today - (10 * 365))
+
+    self.archived = true
+  end
 end
