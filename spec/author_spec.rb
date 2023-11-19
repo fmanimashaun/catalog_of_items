@@ -12,7 +12,6 @@ describe Author do
     it 'The initialize method should create a item with 3 variables' do
       expect(@item.instance_variables.length).to eq 3
       expect(@item.instance_variables).to eq %i[@id @name @items]
-      # expect(@item.instance_variable_get(:@id)).to be_a String
     end
 
     it 'The initialize method should create an instance variable of name' do
