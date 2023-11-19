@@ -1,4 +1,5 @@
 require_relative '../classes/label'
+require_relative '../classes/item'
 
 describe Label do
   before(:each) do
@@ -6,6 +7,10 @@ describe Label do
       title: 'New',
       color: 'green',
       items: []
+    )
+
+    @item = Item.new(
+      publish_date: '1967-01-01'
     )
   end
 
@@ -29,6 +34,17 @@ describe Label do
 
     it 'The initialize method should create an instance variable of id' do
       expect(@label.instance_variable_get(:@id)).to be_a String
+    end
+  end
+
+  context '#add_item' do
+    it 'The add_item method should add a item to the items array' do
+      @label.add_item(@item)
+      expect(@label.instance_variable_get(:@items).length).to eq 1
+      expect(@label.instance_variable_get(:@items)).to eq [@item]
+      expect(@label.instance_variable_get(:@items).first).to be_a Item
+      expect(@item.instance_variable_get(:@label)).to be_a Label
+      expect(@item.genre).to eq(@label)
     end
   end
 end
