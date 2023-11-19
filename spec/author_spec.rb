@@ -3,8 +3,8 @@ require_relative '../classes/author'
 describe Author do
   before(:each) do
     @author = Author.new(
-      first_name : 'Rowling',
-      last_name : 'J. K.',
+      first_name: 'Rowling',
+      last_name: 'J. K.',
       items: []
     )
   end

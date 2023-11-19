@@ -3,8 +3,8 @@ require_relative '../classes/label'
 describe Label do
   before(:each) do
     @label = Label.new(
-      title : 'New',
-      color : 'green',
+      title: 'New',
+      color: 'green',
       items: []
     )
   end
