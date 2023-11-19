@@ -19,4 +19,8 @@ class Item
     return false unless publish_date < (Date.today - (10 * 365))
     true
   end
+
+  def move_to_archive
+    @archived = true if can_be_archived?
+  end
 end
