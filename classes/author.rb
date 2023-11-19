@@ -10,4 +10,9 @@ class Author
     @last_name = params[:last_name]
     @items = params[:items] || []
   end
+
+  def add_item(item)
+    @items << item
+    item.author = self
+  end
 end

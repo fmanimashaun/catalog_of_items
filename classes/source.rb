@@ -9,4 +9,9 @@ class Source
     @name = params[:name]
     @items = params[:items] || []
   end
+
+  def add_item(item)
+    @items << item
+    item.source = self
+  end
 end
