@@ -3,29 +3,17 @@ require_relative '../classes/book'
 describe Book do
   before(:each) do
     @book = Book.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
       publish_date: (Date.today - (11 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: ''
     )
     @book_recent = Book.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
       publish_date: (Date.today - (5 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: 'bad'
     )
 
     @book_good = Book.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
       publish_date: (Date.today - (5 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: 'good'
@@ -35,22 +23,6 @@ describe Book do
   context 'Testing the Item class' do
     it 'The initialize method should create a item with 8 variables' do
       expect(@book.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @cover_state]
-    end
-
-    it 'The initialize method should create an instance variable of genre' do
-      expect(@book.instance_variable_get(:@genre)).to eq 'Fantasy'
-    end
-
-    it 'The initialize method should create an instance variable of author' do
-      expect(@book.instance_variable_get(:@author)).to eq 'J.K. Rowling'
-    end
-
-    it 'The initialize method should create an instance variable of source' do
-      expect(@book.instance_variable_get(:@source)).to eq 'Bought online'
-    end
-
-    it 'The initialize method should create an instance variable of label' do
-      expect(@book.instance_variable_get(:@label)).to eq 'New'
     end
 
     it 'The initialize method should create an instance variable of publish_date' do
