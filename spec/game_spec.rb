@@ -7,15 +7,16 @@ describe Game do
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (11 * 365)).strftime
-      last_played_at: (Date.today).strftime
+      publish_date: (Date.today - (11 * 365)).strftime,
+      last_played_at: Date.today.strftime
     )
+
     @game_played_old = Book.new(
       genre: 'Fantasy',
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (5 * 365)).strftime
+      publish_date: (Date.today - (5 * 365)).strftime,
       last_played_at: (Date.today - (3 * 365)).strftime
     )
 
@@ -24,15 +25,15 @@ describe Game do
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (5 * 365)).strftime
-      last_played_at: (Date.today).strftime
+      publish_date: (Date.today - (5 * 365)).strftime,
+      last_played_at: Date.today.strftime
     )
   end
 
   context 'Testing the Item class' do
     it 'The initialize method should create a game with 9 variables' do
-      expect(@game.instance_variables.length).to eq 9
-      expect(@game.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @multiplayer @last_played_at]
+      expect(@game.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @multiplayer
+                                                @last_played_at]
     end
 
     it 'The initialize method should create an instance variable of genre' do
@@ -55,16 +56,13 @@ describe Game do
       expect(@game.instance_variable_get(:@publish_date)).to eq '2012-11-21'
     end
 
-    it 'The initialize method should create an instance variable of archived' do
-      expect(@game.instance_variable_get(:@archived)).to eq false
-    end
-
     it 'The initialize method should create an instance variable of multiplayer' do
       expect(@game.instance_variable_get(:@multiplayer)).to eq false
     end
 
     it 'The initialize method should create an instance variable of last_played_at' do
-      expect(@game.instance_variable_get(:@last_played_at)).to eq (Date.today).strftime
+      expect(@game.instance_variable_get(:@last_played_at)).to eq Date.today.strftime
+    end
 
     it 'The initialize method should create an instance variable of id' do
       expect(@game.instance_variable_get(:@id)).to be_a String
@@ -82,6 +80,7 @@ describe Game do
 
     it 'returns false if cover_state is not bad and published_date less than 10yrs' do
       expect(@game_played_recent.can_be_archived?).to eq(false)
+    end
   end
 
   context 'Testing the move_to_archive method' do

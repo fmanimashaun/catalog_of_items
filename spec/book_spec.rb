@@ -7,7 +7,7 @@ describe Book do
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (11 * 365)).strftime
+      publish_date: (Date.today - (11 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: ''
     )
@@ -16,7 +16,7 @@ describe Book do
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (5 * 365)).strftime
+      publish_date: (Date.today - (5 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: 'bad'
     )
@@ -26,7 +26,7 @@ describe Book do
       author: 'J.K. Rowling',
       source: 'Bought online',
       label: 'New',
-      publish_date: (Date.today - (5 * 365)).strftime
+      publish_date: (Date.today - (5 * 365)).strftime,
       publisher: 'Bloomsbury Publishing',
       cover_state: 'good'
     )
@@ -34,7 +34,6 @@ describe Book do
 
   context 'Testing the Item class' do
     it 'The initialize method should create a item with 8 variables' do
-      expect(@book.instance_variables.length).to eq 8
       expect(@book.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @cover_state]
     end
 
@@ -86,6 +85,7 @@ describe Book do
 
     it 'returns false if cover_state is not bad and published_date less than 10yrs' do
       expect(@book_good.can_be_archived?).to eq(false)
+    end
   end
 
   context 'Testing the move_to_archive method' do
