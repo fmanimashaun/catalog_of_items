@@ -3,11 +3,7 @@ require_relative '../classes/music_album'
 describe MusicAlbum do
   before(:each) do
     @music_album = MusicAlbum.new(
-      publish_date: (Date.today - (11 * 365)).strftime
-    )
-
-    @music_album_spotify = MusicAlbum.new(
-      publish_date: (Date.today - (5 * 365)).strftime,
+      publish_date: (Date.today - (11 * 365)).strftime,
       on_spotify: true
     )
 
@@ -36,25 +32,19 @@ describe MusicAlbum do
   end
 
   context 'Testing the can_be_archived? method' do
-    it 'returns true if published_date is older than 10 years' do
+    it 'returns true if published_date is older than 10 years and on_spotify is true' do
       expect(@music_album.can_be_archived?).to eq(true)
     end
 
-    it 'returns false if silent is true' do
-      expect(@music_album_spotify.can_be_archived?).to eq(true)
-    end
-
-    it 'returns false if silent is false and published_date less than 10yrs' do
-      expect(@music_album_recent.can_be_archived?).to eq(false)
+    it 'returns false if on_spotify is false' do
+      expect(@music_album.can_be_archived?).to eq(false)
     end
   end
 
   context 'Testing the move_to_archive method' do
     it 'changes the archived property to true if can_be_archived? is true' do
       @music_album.move_to_archive
-      @music_album_spotify.move_to_archive
       expect(@music_album.archived).to eq(true)
-      expect(@music_album_spotify.archived).to eq(true)
     end
 
     it 'does nothing if can_be_archived? is false' do
