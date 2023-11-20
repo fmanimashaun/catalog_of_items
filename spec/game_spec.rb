@@ -8,7 +8,6 @@ describe Game do
       source: 'Bought online',
       label: 'New',
       publish_date: (Date.today - (11 * 365)).strftime
-      multiplayer: true,
       last_played_at: (Date.today).strftime
     )
     @game_played_old = Book.new(
@@ -17,7 +16,6 @@ describe Game do
       source: 'Bought online',
       label: 'New',
       publish_date: (Date.today - (5 * 365)).strftime
-      multiplayer: true,
       last_played_at: (Date.today - (3 * 365)).strftime
     )
 
@@ -27,14 +25,13 @@ describe Game do
       source: 'Bought online',
       label: 'New',
       publish_date: (Date.today - (5 * 365)).strftime
-      multiplayer: true,
       last_played_at: (Date.today).strftime
     )
   end
 
   context 'Testing the Item class' do
-    it 'The initialize method should create a game with 8 variables' do
-      expect(@game.instance_variables.length).to eq 8
+    it 'The initialize method should create a game with 9 variables' do
+      expect(@game.instance_variables.length).to eq 9
       expect(@game.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @multiplayer @last_played_at]
     end
 
@@ -63,7 +60,7 @@ describe Game do
     end
 
     it 'The initialize method should create an instance variable of multiplayer' do
-      expect(@game.instance_variable_get(:@multiplayer)).to eq true
+      expect(@game.instance_variable_get(:@multiplayer)).to eq false
     end
 
     it 'The initialize method should create an instance variable of last_played_at' do
