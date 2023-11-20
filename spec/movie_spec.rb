@@ -22,7 +22,7 @@ describe Movie do
     end
 
     it 'The initialize method should create an instance variable of publish_date' do
-      expect(@movie.instance_variable_get(:@publish_date)).to eq '2012-11-21'
+      expect(@movie.instance_variable_get(:@publish_date)).to eq (Date.today - (11 * 365)).strftime
     end
 
     it 'The initialize method should create an instance variable of silent' do

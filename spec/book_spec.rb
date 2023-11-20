@@ -21,12 +21,13 @@ describe Book do
   end
 
   context 'Testing the Item class' do
-    it 'The initialize method should create a item with 8 variables' do
-      expect(@book.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @cover_state]
+    it 'The initialize method should create a item with 9 variables' do
+      expect(@book.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived
+                                                @publisher @cover_state]
     end
 
     it 'The initialize method should create an instance variable of publish_date' do
-      expect(@book.instance_variable_get(:@publish_date)).to eq '2012-11-21'
+      expect(@book.instance_variable_get(:@publish_date)).to eq (Date.today - (11 * 365)).strftime
     end
 
     it 'The initialize method should create an instance variable of archived' do

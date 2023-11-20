@@ -1,11 +1,13 @@
-require_relative '../decorators/item_decorator'
+require_relative 'item'
 
-class Movie < ItemDecorator
+class Movie < Item
   attr_accessor :silent
+  attr_reader :publish_date
 
   def initialize(params = {})
-    super(Item.new(params))
+    super(params)
     @silent = params[:silent] || false
+    @publish_date = params[:publish_date]
   end
 
   def can_be_archived?
