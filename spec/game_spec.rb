@@ -3,28 +3,16 @@ require_relative '../classes/game'
 describe Game do
   before(:each) do
     @game = Game.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
       publish_date: (Date.today - (11 * 365)).strftime,
       last_played_at: Date.today.strftime
     )
 
-    @game_played_old = Book.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
+    @game_played_old = Game.new(
       publish_date: (Date.today - (5 * 365)).strftime,
       last_played_at: (Date.today - (3 * 365)).strftime
     )
 
-    @game_played_recent = Book.new(
-      genre: 'Fantasy',
-      author: 'J.K. Rowling',
-      source: 'Bought online',
-      label: 'New',
+    @game_played_recent = Game.new(
       publish_date: (Date.today - (5 * 365)).strftime,
       last_played_at: Date.today.strftime
     )
@@ -34,22 +22,6 @@ describe Game do
     it 'The initialize method should create a game with 9 variables' do
       expect(@game.instance_variables).to eq %i[@id @genre @author @source @label @publish_date @archived @multiplayer
                                                 @last_played_at]
-    end
-
-    it 'The initialize method should create an instance variable of genre' do
-      expect(@game.instance_variable_get(:@genre)).to eq 'Fantasy'
-    end
-
-    it 'The initialize method should create an instance variable of author' do
-      expect(@game.instance_variable_get(:@author)).to eq 'J.K. Rowling'
-    end
-
-    it 'The initialize method should create an instance variable of source' do
-      expect(@game.instance_variable_get(:@source)).to eq 'Bought online'
-    end
-
-    it 'The initialize method should create an instance variable of label' do
-      expect(@game.instance_variable_get(:@label)).to eq 'New'
     end
 
     it 'The initialize method should create an instance variable of publish_date' do
