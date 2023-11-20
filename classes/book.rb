@@ -1,12 +1,14 @@
-require_relative '../decorators/item_decorator'
+require_relative 'item'
 
-class Book < ItemDecorator
+class Book < Item
   attr_accessor :cover_state, :publisher
+  attr_reader :publish_date
 
   def initialize(params = {})
-    super(Item.new(params))
+    super(params)
     @publisher = params[:publisher]
     @cover_state = params[:cover_state]
+    @publish_date = params[:publish_date]
   end
 
   def can_be_archived?
