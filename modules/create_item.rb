@@ -13,7 +13,7 @@ module CreateItem
   SILENT_PROMPT = 'Is it a silent movie? [Y/N]: '.freeze
 
   def create_book
-    print PUBLISH_DATE_PROMPT
+    print PUBLISHER_PROMPT
     publisher = gets.chomp
     print COVER_STATE_PROMPT
     cover_state = select_cover_state
