@@ -10,11 +10,8 @@ class Menu
     puts '6 - List all labels'
     puts '7 - List all authors'
     puts '8 - List all sources'
-    puts '9 - Add a book'
-    puts '10 - Add a music album'
-    puts '11 - Add a movie'
-    puts '12 - Add a game'
-    puts '13 - Exit'
+    puts '9 - Add an item [Book, Game, Music Album, Movie]'
+    puts '10 - Exit'
   end
 
   def self.invalid_option
