@@ -5,14 +5,20 @@ require_relative '../classes/source'
 require_relative '../classes/item'
 
 module ItemAttributes
-  ITEM_TYPES = { 1 => 'Book', 2 => 'Game', 3 => 'Music Album', 4 => 'Movie'}.freeze
+  ITEM_TYPES = { 1 => 'Book', 2 => 'Game', 3 => 'Music Album', 4 => 'Movie' }.freeze
+  GENRE_NAME_PROMPT = 'Enter the genre name: '.freeze
+  AUTHOR_FIRST_NAME_PROMPT = 'Enter the author first name: '.freeze
+  AUTHOR_LAST_NAME_PROMPT = 'Enter the author last name: '.freeze
+  LABEL_TITLE_PROMPT = 'Enter the label title: '.freeze
+  LABEL_COLOR_PROMPT = 'Enter the label color: '.freeze
+  SOURCE_NAME_PROMPT = 'Enter the source name: '.freeze
 
   def create_genre(item_type)
     print "Do you know the #{ITEM_TYPES[item_type]}'s genre? [Y/N]: "
     genre_answer = gets.chomp.downcase
     return unless genre_answer == 'y'
 
-    print 'Enter the genre name: '
+    print GENRE_NAME_PROMPT
     name = gets.chomp
     Genre.new(name: name)
   end
@@ -22,9 +28,9 @@ module ItemAttributes
     author_answer = gets.chomp.downcase
     return unless author_answer == 'y'
 
-    print 'Enter the author first name: '
+    print AUTHOR_FIRST_NAME_PROMPT
     first_name = gets.chomp
-    print 'Enter the author last name: '
+    print AUTHOR_LAST_NAME_PROMPT
     last_name = gets.chomp
     Author.new(first_name: first_name, last_name: last_name)
   end
@@ -34,9 +40,9 @@ module ItemAttributes
     label_answer = gets.chomp.downcase
     return unless label_answer == 'y'
 
-    print 'Enter the label title: '
+    print LABEL_TITLE_PROMPT
     title = gets.chomp
-    print 'Enter the label color: '
+    print LABEL_COLOR_PROMPT
     color = gets.chomp
     Label.new(title: title, color: color)
   end
@@ -46,7 +52,7 @@ module ItemAttributes
     source_answer = gets.chomp.downcase
     return unless source_answer == 'y'
 
-    print 'Enter the source name: '
+    print SOURCE_NAME_PROMPT
     name = gets.chomp
     Source.new(name: name)
   end
