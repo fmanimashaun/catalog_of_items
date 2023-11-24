@@ -19,6 +19,7 @@ class Main
     app.load_genres
     app.load_labels
     app.load_authors
+    app.load_sources
     option = nil
 
     while option != 10

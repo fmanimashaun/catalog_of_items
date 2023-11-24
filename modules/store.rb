@@ -105,4 +105,24 @@ module Store
       @authors << author
     end
   end
+
+  def load_sources
+    return unless File.exist?('data/sources.json')
+
+    # Convert @items to a Hash for faster lookup
+    items_hash = {}
+    @items.each { |item| items_hash[item.id] = item }
+
+    JSON.parse(File.read('data/sources.json')).each do |source_json|
+      source_obj = JSON.parse(source_json)
+      source = Source.new('name' => source_obj['name'])
+
+      source_obj['items'].each do |id|
+        item = items_hash[id]
+        source.add_item(item) unless item.nil?
+      end
+
+      @sources << source
+    end
+  end
 end
