@@ -1,1 +1,1 @@
-["{\"json_class\":\"Book\",\"id\":\"84f70bb1-8999-417c-83e2-067bcad3cd5d\",\"publisher\":\"hshshshshs\",\"cover_state\":\"good\",\"publish_date\":\"2021-01-01\",\"archived\":false}"]
+["{\"json_class\":\"Book\",\"id\":\"84f70bb1-8999-417c-83e2-067bcad3cd5d\",\"publisher\":\"hshshshshs\",\"cover_state\":\"good\",\"publish_date\":\"2021-01-01\",\"archived\":false}","{\"json_class\":\"Game\",\"id\":\"109b30ed-1416-4171-a583-ba286f7602f2\",\"multiplayer\":true,\"last_played_at\":\"2020-01-01\",\"publish_date\":\"2019-01-01\",\"archived\":false}"]

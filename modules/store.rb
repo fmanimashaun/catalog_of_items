@@ -53,8 +53,8 @@ module Store
     items_hash = {}
     @items.each { |item| items_hash[item.id] = item }
 
-    JSON.parse(File.read('data/genres.json')).each do |genre|
-      genre_obj = JSON.parse(genre)
+    JSON.parse(File.read('data/genres.json')).each do |genre_json|
+      genre_obj = JSON.parse(genre_json)
       genre = Genre.new('name' => genre_obj['name'])
 
       genre_obj['items'].each do |id|
@@ -63,6 +63,26 @@ module Store
       end
 
       @genres << genre
+    end
+  end
+
+  def load_labels
+    return unless File.exist?('data/labels.json')
+
+    # Convert @items to a Hash for faster lookup
+    items_hash = {}
+    @items.each { |item| items_hash[item.id] = item }
+
+    JSON.parse(File.read('data/labels.json')).each do |label_json|
+      label_obj = JSON.parse(label_json)
+      label = Label.new('title' => label_obj['title'], 'color' => label_obj['color'])
+
+      label_obj['items'].each do |id|
+        item = items_hash[id]
+        label.add_item(item) unless item.nil?
+      end
+
+      @labels << label
     end
   end
 end
