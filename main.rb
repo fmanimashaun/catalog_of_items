@@ -22,6 +22,8 @@ class Main
       option = user_input
       handle_option(app, option) if option && option != 10
     end
+
+    app.save_items
     puts "\nThanks for using the Catelog App!"
   end
 

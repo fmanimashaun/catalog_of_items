@@ -12,4 +12,15 @@ class Movie < Item
   def can_be_archived?
     super || @silent
   end
+
+  def to_json(*_args)
+    json_obj = {
+      'json_class' => self.class.name,
+      'id' => @id,
+      'silent' => @silent,
+      'publish_date' => @publish_date,
+      'archived' => @archived
+    }
+    json_obj.to_json
+  end
 end

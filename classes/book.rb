@@ -16,10 +16,14 @@ class Book < Item
   end
 
   def to_json(*_args)
-    {
+    json_obj = {
       'json_class' => self.class.name,
       'id' => @id,
-      'author' => @author
-    }.to_json
+      'publisher' => @publisher,
+      'cover_state' => @cover_state,
+      'publish_date' => @publish_date,
+      'archived' => @archived
+    }
+    json_obj.to_json
   end
 end

@@ -15,4 +15,14 @@ class Label
     @items << item
     item.label = self
   end
+
+  def to_json(*_args)
+    {
+      'json_class' => self.class.name,
+      'id' => @id,
+      'title' => @title,
+      'color' => @color,
+      'items' => @items.map(&:id)
+    }.to_json
+  end
 end

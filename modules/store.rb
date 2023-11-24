@@ -2,43 +2,44 @@ require 'json'
 require 'fileutils'
 
 module Store
-  def save_people
+  def save_items
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/people.json', JSON.dump(@people.map(&:to_json)))
+    File.write('data/items.json', JSON.dump(@items.map(&:to_json)))
   end
 
-  def load_people
-    return unless File.exist?('data/people.json')
+  # @genres = []
+  # @labels = []
+  # @authors = []
+  # @sources = []
 
-    JSON.parse(File.read('data/people.json')).map do |person|
-      person_obj = JSON.parse(person, create_additions: true)
-      @people << person_obj
-    end
-  end
-
-  def save_books
+  def save_genres
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/books.json', JSON.dump(@books.map(&:to_json)))
+    File.write('data/genres.json', JSON.dump(@genres.map(&:to_json)))
   end
 
-  def load_books
-    return unless File.exist?('data/books.json')
-
-    JSON.parse(File.read('data/books.json')).map do |book|
-      book_obj = JSON.parse(book, create_additions: true)
-      @books << book_obj
-    end
-  end
-
-  def save_rentals
+  def save_labels
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/rentals.json', JSON.dump(@rentals.map(&:to_json)))
+    File.write('data/labels.json', JSON.dump(@labels.map(&:to_json)))
+  end
+
+  def save_authors
+    # Ensure the 'data' directory exists
+    FileUtils.mkdir_p('data')
+
+    File.write('data/authors.json', JSON.dump(@authors.map(&:to_json)))
+  end
+
+  def save_sources
+    # Ensure the 'data' directory exists
+    FileUtils.mkdir_p('data')
+
+    File.write('data/sources.json', JSON.dump(@sources.map(&:to_json)))
   end
 
   def load_rentals

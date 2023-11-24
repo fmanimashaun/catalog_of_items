@@ -15,4 +15,14 @@ class Author
     @items << item
     item.author = self
   end
+
+  def to_json(*_args)
+    {
+      'json_class' => self.class.name,
+      'id' => @id,
+      'first_name' => @first_name,
+      'last_name' => @last_name,
+      'items' => @items.map(&:id)
+    }.to_json
+  end
 end
