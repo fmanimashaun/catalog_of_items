@@ -20,7 +20,7 @@ module ItemAttributes
 
     print GENRE_NAME_PROMPT
     name = gets.chomp
-    Genre.new(name: name)
+    Genre.new('name' => name)
   end
 
   def create_author(item_type)
@@ -32,7 +32,10 @@ module ItemAttributes
     first_name = gets.chomp
     print AUTHOR_LAST_NAME_PROMPT
     last_name = gets.chomp
-    Author.new(first_name: first_name, last_name: last_name)
+    Author.new(
+      'first_name' => first_name,
+      'last_name' => last_name
+    )
   end
 
   def create_label(item_type)
@@ -44,7 +47,10 @@ module ItemAttributes
     title = gets.chomp
     print LABEL_COLOR_PROMPT
     color = gets.chomp
-    Label.new(title: title, color: color)
+    Label.new(
+      'title' => title,
+      'color' => color
+    )
   end
 
   def create_source(item_type)
@@ -54,6 +60,6 @@ module ItemAttributes
 
     print SOURCE_NAME_PROMPT
     name = gets.chomp
-    Source.new(name: name)
+    Source.new('name' => name)
   end
 end

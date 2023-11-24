@@ -19,7 +19,11 @@ module CreateItem
     cover_state = select_cover_state
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
-    Book.new(publisher: publisher, cover_state: cover_state, publish_date: publish_date)
+    Book.new(
+      'publisher' => publisher,
+      'cover_state' => cover_state,
+      'publish_date' => publish_date
+    )
   end
 
   def create_game
@@ -29,7 +33,11 @@ module CreateItem
     last_played_at = gets.chomp
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
-    Game.new(multiplayer: multiplayer, last_played_at: last_played_at, publish_date: publish_date)
+    Game.new(
+      'multiplayer' => multiplayer,
+      'last_played_at' => last_played_at,
+      'publish_date' => publish_date
+    )
   end
 
   def create_music_album
@@ -37,7 +45,10 @@ module CreateItem
     on_spotify = gets.chomp.downcase == 'y'
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
-    MusicAlbum.new(on_spotify: on_spotify, publish_date: publish_date)
+    MusicAlbum.new(
+      'on_spotify' => on_spotify,
+      'publish_date' => publish_date
+    )
   end
 
   def create_movie
@@ -45,7 +56,10 @@ module CreateItem
     publish_date = gets.chomp
     print SILENT_PROMPT
     silent = gets.chomp.downcase == 'y'
-    Movie.new(publish_date: publish_date, silent: silent)
+    Movie.new(
+      'publish_date' => publish_date,
+      'silent' => silent
+    )
   end
 
   def select_cover_state

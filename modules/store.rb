@@ -16,34 +16,53 @@ module Store
       item_obj = JSON.parse(item, create_additions: true)
       @items << item_obj
     end
-    puts @items
   end
 
   def save_genres
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/genres.json', JSON.dump(@genres.map(&:to_json)))
+    File.write('data/genres.json', JSON.dump(@genres.map(&:to_json))) unless @genres.empty?
   end
 
   def save_labels
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/labels.json', JSON.dump(@labels.map(&:to_json)))
+    File.write('data/labels.json', JSON.dump(@labels.map(&:to_json))) unless @labels.empty?
   end
 
   def save_authors
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/authors.json', JSON.dump(@authors.map(&:to_json)))
+    File.write('data/authors.json', JSON.dump(@authors.map(&:to_json))) unless @authors.empty?
   end
 
   def save_sources
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/sources.json', JSON.dump(@sources.map(&:to_json)))
+    File.write('data/sources.json', JSON.dump(@sources.map(&:to_json))) unless @sources.empty?
+  end
+
+  def load_genres
+    return unless File.exist?('data/genres.json')
+
+    # Convert @items to a Hash for faster lookup
+    items_hash = {}
+    @items.each { |item| items_hash[item.id] = item }
+
+    JSON.parse(File.read('data/genres.json')).each do |genre|
+      genre_obj = JSON.parse(genre)
+      genre = Genre.new('name' => genre_obj['name'])
+
+      genre_obj['items'].each do |id|
+        item = items_hash[id]
+        genre.add_item(item) unless item.nil?
+      end
+
+      @genres << genre
+    end
   end
 end

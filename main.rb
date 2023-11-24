@@ -16,6 +16,7 @@ class Main
   def start
     app = App.new
     app.load_items
+    app.load_genres
     option = nil
 
     while option != 10
