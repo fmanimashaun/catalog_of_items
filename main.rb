@@ -15,14 +15,13 @@ class Main
   }.freeze
   def start
     app = App.new
-    option = 1
+    option = nil
 
     while option != 10
       Menu.display
       option = user_input
-      handle_option(app, option)
+      handle_option(app, option) if option && option != 10
     end
-
     puts "\nThanks for using the Catelog App!"
   end
 

@@ -88,7 +88,7 @@ class App
       puts "\nNo books found."
       return
     end
-
+    puts "\n=== List of All Books ==="
     books.each_with_index do |book, index|
       puts "\n#{index + 1}) #{book.publish_date} - #{book.publisher} - #{book.cover_state}"
     end
@@ -101,7 +101,7 @@ class App
       puts "\nNo music albums found."
       return
     end
-
+    puts "\n=== List of All Music Album ==="
     music_albums.each_with_index do |music_album, index|
       puts "\n#{index + 1}) #{music_album.publish_date} - #{music_album.on_spotify}"
     end
@@ -114,7 +114,7 @@ class App
       puts "\nNo movies found."
       return
     end
-
+    puts "\n=== List of All Movies ==="
     movies.each_with_index do |movie, index|
       puts "\n#{index + 1}) #{movie.publish_date} - #{movie.silent}"
     end
@@ -127,7 +127,7 @@ class App
       puts "\nNo games found."
       return
     end
-
+    puts "\n=== List of All Games ==="
     games.each_with_index do |game, index|
       puts "\n#{index + 1}) #{game.publish_date} - #{game.multiplayer}"
     end
@@ -138,7 +138,7 @@ class App
       puts "\nNo genres found."
       return
     end
-
+    puts "\n=== List of All Genres ==="
     @genres.each_with_index do |genre, index|
       puts "\n#{index + 1}) - #{genre.name}"
     end
@@ -149,7 +149,7 @@ class App
       puts "\nNo labels found."
       return
     end
-
+    puts "\n=== List of All Label ==="
     @labels.each_with_index do |label, index|
       puts "\n#{index + 1}) #{label.title} - #{label.color}"
     end
@@ -160,7 +160,7 @@ class App
       puts "\nNo authors found."
       return
     end
-
+    puts "\n=== List of All Authors ==="
     @authors.each_with_index do |author, index|
       puts "\n#{index + 1}) #{author.first_name} - #{author.last_name}"
     end
@@ -171,7 +171,7 @@ class App
       puts "\nNo sources found."
       return
     end
-
+    puts "\n=== List of All Sources ==="
     @sources.each_with_index do |source, index|
       puts "\n#{index + 1}) #{source.name}"
     end
