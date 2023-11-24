@@ -1,0 +1,6 @@
+[
+  "{\"json_class\":\"Book\",\"id\":\"7fc0a373-3f43-4221-9887-7e381f232860\",\"publisher\":\"sjsjsjsj\",\"cover_state\":\"good\",\"publish_date\":\"2021-01-01\",\"archived\":false}",
+  "{\"json_class\":\"Game\",\"id\":\"01f56f7c-9a3f-47c8-8a35-e3b9dd2ca893\",\"multiplayer\":true,\"last_played_at\":\"2021-01-01\",\"publish_date\":\"2020-01-01\",\"archived\":false}",
+  "{\"json_class\":\"MusicAlbum\",\"id\":\"e2bbba7c-f745-477c-a56a-225eb0a6a350\",\"on_spotify\":true,\"publish_date\":\"2021-01-01\",\"archived\":false}",
+  "{\"json_class\":\"Movie\",\"id\":\"55e679f4-183f-4356-9ba1-827783ded7db\",\"silent\":true,\"publish_date\":\"2021-01-01\",\"archived\":false}"
+]

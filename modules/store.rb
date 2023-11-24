@@ -9,10 +9,15 @@ module Store
     File.write('data/items.json', JSON.dump(@items.map(&:to_json)))
   end
 
-  # @genres = []
-  # @labels = []
-  # @authors = []
-  # @sources = []
+  def load_items
+    return unless File.exist?('data/items.json')
+
+    JSON.parse(File.read('data/items.json')).map do |item|
+      item_obj = JSON.parse(item, create_additions: true)
+      @items << item_obj
+    end
+    puts @items
+  end
 
   def save_genres
     # Ensure the 'data' directory exists
@@ -40,16 +45,5 @@ module Store
     FileUtils.mkdir_p('data')
 
     File.write('data/sources.json', JSON.dump(@sources.map(&:to_json)))
-  end
-
-  def load_rentals
-    return unless File.exist?('data/rentals.json')
-
-    JSON.parse(File.read('data/rentals.json')).map do |rental|
-      rental_obj = JSON.parse(rental)
-      book = @books.find { |b| b.id == rental_obj['book'] }
-      person = @people.find { |p| p.id == rental_obj['person'] }
-      @rentals << Rental.new(rental_obj['date'], book, person)
-    end
   end
 end

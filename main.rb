@@ -15,6 +15,7 @@ class Main
   }.freeze
   def start
     app = App.new
+    app.load_items
     option = nil
 
     while option != 10
