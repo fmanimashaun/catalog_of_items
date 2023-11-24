@@ -6,10 +6,10 @@ class Item
 
   def initialize(params = {})
     @id = params[:id] || SecureRandom.uuid
-    @genre = params[:genre] || ''
-    @author = params[:author] || ''
-    @source = params[:source] || ''
-    @label = params[:label] || ''
+    @genre = params[:genre] || nil
+    @author = params[:author] || nil
+    @source = params[:source] || nil
+    @label = params[:label] || nil
     @publish_date = params[:publish_date]
     @archived = params[:archived] || false
   end

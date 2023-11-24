@@ -9,7 +9,6 @@ class Game < Item
     super(params)
     @multiplayer = params[:multiplayer] || false
     @last_played_at = params[:last_played_at]
-    @publish_date = params[:publish_date]
   end
 
   def can_be_archived?

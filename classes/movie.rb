@@ -7,7 +7,6 @@ class Movie < Item
   def initialize(params = {})
     super(params)
     @silent = params[:silent] || false
-    @publish_date = params[:publish_date]
   end
 
   def can_be_archived?
