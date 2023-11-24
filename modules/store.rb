@@ -85,4 +85,24 @@ module Store
       @labels << label
     end
   end
+
+  def load_authors
+    return unless File.exist?('data/authors.json')
+
+    # Convert @items to a Hash for faster lookup
+    items_hash = {}
+    @items.each { |item| items_hash[item.id] = item }
+
+    JSON.parse(File.read('data/authors.json')).each do |author_json|
+      author_obj = JSON.parse(author_json)
+      author = Author.new('first_name' => author_obj['first_name'], 'last_name' => author_obj['last_name'])
+
+      author_obj['items'].each do |id|
+        item = items_hash[id]
+        author.add_item(item) unless item.nil?
+      end
+
+      @authors << author
+    end
+  end
 end
