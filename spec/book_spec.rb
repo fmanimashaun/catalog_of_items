@@ -3,20 +3,20 @@ require_relative '../classes/book'
 describe Book do
   before(:each) do
     @book = Book.new(
-      publish_date: (Date.today - (11 * 365)).strftime,
-      publisher: 'Bloomsbury Publishing',
-      cover_state: ''
+      'publish_date' => (Date.today - (11 * 365)).strftime,
+      'publisher' => 'Bloomsbury Publishing',
+      'cover_state' => ''
     )
     @book_recent = Book.new(
-      publish_date: (Date.today - (5 * 365)).strftime,
-      publisher: 'Bloomsbury Publishing',
-      cover_state: 'bad'
+      'publish_date' => (Date.today - (5 * 365)).strftime,
+      'publisher' => 'Bloomsbury Publishing',
+      'cover_state' => 'bad'
     )
 
     @book_good = Book.new(
-      publish_date: (Date.today - (5 * 365)).strftime,
-      publisher: 'Bloomsbury Publishing',
-      cover_state: 'good'
+      'publish_date' => (Date.today - (5 * 365)).strftime,
+      'publisher' => 'Bloomsbury Publishing',
+      'cover_state' => 'good'
     )
   end
 

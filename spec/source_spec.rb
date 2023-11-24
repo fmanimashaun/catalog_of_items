@@ -4,12 +4,12 @@ require_relative '../classes/item'
 describe Source do
   before(:each) do
     @source = Source.new(
-      name: 'New York Times',
-      items: []
+      'name' => 'New York Times',
+      'items' => []
     )
 
     @item = Item.new(
-      publish_date: '1967-01-01'
+      'publish_date' => '1967-01-01'
     )
   end
 

@@ -3,12 +3,12 @@ require_relative '../classes/music_album'
 describe MusicAlbum do
   before(:each) do
     @music_album = MusicAlbum.new(
-      publish_date: (Date.today - (11 * 365)).strftime,
-      on_spotify: true
+      'publish_date' => (Date.today - (11 * 365)).strftime,
+      'on_spotify' => true
     )
 
     @music_album_recent = MusicAlbum.new(
-      publish_date: (Date.today - (5 * 365)).strftime
+      'publish_date' => (Date.today - (5 * 365)).strftime
     )
   end
 

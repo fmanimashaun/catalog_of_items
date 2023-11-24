@@ -3,16 +3,16 @@ require_relative '../classes/movie'
 describe Movie do
   before(:each) do
     @movie = Movie.new(
-      publish_date: (Date.today - (11 * 365)).strftime
+      'publish_date' => (Date.today - (11 * 365)).strftime
     )
 
     @movie_silent = Movie.new(
-      publish_date: (Date.today - (5 * 365)).strftime,
-      silent: true
+      'publish_date' => (Date.today - (5 * 365)).strftime,
+      'silent' => true
     )
 
     @movie_recent = Movie.new(
-      publish_date: (Date.today - (5 * 365)).strftime
+      'publish_date' => (Date.today - (5 * 365)).strftime
     )
   end
 
