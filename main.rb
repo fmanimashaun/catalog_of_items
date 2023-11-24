@@ -25,6 +25,10 @@ class Main
     end
 
     app.save_items
+    app.save_authors
+    app.save_labels
+    app.save_genres
+    app.save_sources
     puts "\nThanks for using the Catelog App!"
   end
 
