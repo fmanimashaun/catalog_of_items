@@ -7,8 +7,8 @@ class Game < Item
 
   def initialize(params = {})
     super(params)
-    @multiplayer = params[:multiplayer] || false
-    @last_played_at = params[:last_played_at]
+    @multiplayer = params['multiplayer'] || false
+    @last_played_at = params['last_played_at']
   end
 
   def can_be_archived?
@@ -28,12 +28,12 @@ class Game < Item
   end
 
   def self.json_create(object)
-    new({
-          'id' => object['id'],
-          'multiplayer' => object['multiplayer'],
-          'last_played_at' => object['last_played_at'],
-          'publish_date' => object['publish_date'],
-          'archived' => object['archived']
-        })
+    new(
+      'id' => object['id'],
+      'multiplayer' => object['multiplayer'],
+      'last_played_at' => object['last_played_at'],
+      'publish_date' => object['publish_date'],
+      'archived' => object['archived']
+    )
   end
 end

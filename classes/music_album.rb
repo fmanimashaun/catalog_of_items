@@ -6,7 +6,7 @@ class MusicAlbum < Item
 
   def initialize(params = {})
     super(params)
-    @on_spotify = params[:on_spotify] || false
+    @on_spotify = params['on_spotify'] || false
   end
 
   def can_be_archived?

@@ -6,7 +6,7 @@ class Movie < Item
 
   def initialize(params = {})
     super(params)
-    @silent = params[:silent] || false
+    @silent = params['silent'] || false
   end
 
   def can_be_archived?
@@ -25,11 +25,11 @@ class Movie < Item
   end
 
   def self.json_create(object)
-    new({
-          'id' => object['id'],
-          'silent' => object['silent'],
-          'publish_date' => object['publish_date'],
-          'archived' => object['archived']
-        })
+    new(
+      'id' => object['id'],
+      'silent' => object['silent'],
+      'publish_date' => object['publish_date'],
+      'archived' => object['archived']
+    )
   end
 end
