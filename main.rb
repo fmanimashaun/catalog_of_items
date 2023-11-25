@@ -11,28 +11,25 @@ class Main
     6 => :list_labels,
     7 => :list_authors,
     8 => :list_sources,
-    9 => :add_item
+    9 => :create_book,
+    10 => :create_music_album,
+    11 => :create_movie,
+    12 => :create_game
   }.freeze
   def start
     app = App.new
     app.load_items
-    app.load_genres
-    app.load_labels
-    app.load_authors
-    app.load_sources
+    app.load_attributes
     option = nil
 
-    while option != 10
+    while option != 13
       Menu.display
       option = user_input
-      handle_option(app, option) if option && option != 10
+      handle_option(app, option) if option && option != 13
     end
 
     app.save_items
-    app.save_authors
-    app.save_labels
-    app.save_genres
-    app.save_sources
+    app.save_attributes
     puts "\nThanks for using the Catelog App!"
   end
 
