@@ -25,11 +25,11 @@ class MusicAlbum < Item
   end
 
   def self.json_create(object)
-    new({
-          id: object[:id],
-          on_spotify: object[:on_spotify],
-          publish_date: object[:publish_date],
-          archived: object[:archived]
-        })
+    new(
+      id: object['id'],
+      on_spotify: object['on_spotify'],
+      publish_date: object['publish_date'],
+      archived: object['archived']
+    )
   end
 end

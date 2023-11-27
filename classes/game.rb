@@ -30,10 +30,10 @@ class Game < Item
   def self.json_create(object)
     new(
       id: object[:id],
-      multiplayer: object[:multiplayer],
-      last_played_at: object[:last_played_at],
-      publish_date: object[:publish_date],
-      archived: object[:archived]
+      multiplayer: object['multiplayer'],
+      last_played_at: object['last_played_at'],
+      publish_date: object['publish_date'],
+      archived: object['archived']
     )
   end
 end

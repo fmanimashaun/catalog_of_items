@@ -30,10 +30,10 @@ class Book < Item
   def self.json_create(object)
     new(
       id: object[:id],
-      publisher: object[:publisher],
-      cover_state: object[:cover_state],
-      publish_date: object[:publish_date],
-      archived: object[:archived]
+      publisher: object['publisher'],
+      cover_state: object['cover_state'],
+      publish_date: object['publish_date'],
+      archived: object['archived']
     )
   end
 end

@@ -26,10 +26,10 @@ class Movie < Item
 
   def self.json_create(object)
     new(
-      id: object[:id],
-      silent: object[:silent],
-      publish_date: object[:publish_date],
-      archived: object[:archived]
+      id: object['id'],
+      silent: object['silent'],
+      publish_date: object['publish_date'],
+      archived: object['archived']
     )
   end
 end
