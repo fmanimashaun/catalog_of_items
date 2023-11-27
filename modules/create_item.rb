@@ -24,9 +24,9 @@ module CreateItem
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
     book = Book.new(
-      'publisher' => publisher,
-      'cover_state' => cover_state,
-      'publish_date' => publish_date
+      publisher: publisher,
+      cover_state: cover_state,
+      publish_date: publish_date
     )
 
     genre = create_genre(1)
@@ -46,9 +46,9 @@ module CreateItem
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
     game = Game.new(
-      'multiplayer' => multiplayer,
-      'last_played_at' => last_played_at,
-      'publish_date' => publish_date
+      multiplayer: multiplayer,
+      last_played_at: last_played_at,
+      publish_date: publish_date
     )
 
     genre = create_genre(2)
@@ -66,8 +66,8 @@ module CreateItem
     print PUBLISH_DATE_PROMPT
     publish_date = gets.chomp
     music_album = MusicAlbum.new(
-      'on_spotify' => on_spotify,
-      'publish_date' => publish_date
+      on_spotify: on_spotify,
+      publish_date: publish_date
     )
 
     genre = create_genre(3)
@@ -85,8 +85,8 @@ module CreateItem
     print SILENT_PROMPT
     silent = gets.chomp.downcase == 'y'
     movie = Movie.new(
-      'publish_date' => publish_date,
-      'silent' => silent
+      publish_date: publish_date,
+      silent: silent
     )
     genre = create_genre(3)
     author = create_author(3)

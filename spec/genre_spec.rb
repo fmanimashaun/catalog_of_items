@@ -4,12 +4,12 @@ require_relative '../classes/item'
 describe Genre do
   before(:each) do
     @genre = Genre.new(
-      'name' => 'Action',
-      'items' => []
+      name: 'Action',
+      items: []
     )
 
     @item = Item.new(
-      'publish_date' => '1967-01-01'
+      publish_date: '1967-01-01'
     )
   end
 

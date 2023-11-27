@@ -5,10 +5,10 @@ class Label
   attr_accessor :title, :color, :items
 
   def initialize(params = {})
-    @id = params['id'] || SecureRandom.uuid
-    @title = params['title']
-    @color = params['color']
-    @items = params['items'] || []
+    @id = params[:id] || SecureRandom.uuid
+    @title = params[:title]
+    @color = params[:color]
+    @items = params[:items] || []
   end
 
   def add_item(item)
@@ -18,11 +18,11 @@ class Label
 
   def to_json(*_args)
     {
-      'json_class' => self.class.name,
-      'id' => @id,
-      'title' => @title,
-      'color' => @color,
-      'items' => @items.map(&:id)
+      json_class: self.class.name,
+      id: @id,
+      title: @title,
+      color: @color,
+      items: @items.map(&:id)
     }.to_json
   end
 end

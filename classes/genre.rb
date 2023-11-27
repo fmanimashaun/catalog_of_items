@@ -5,9 +5,9 @@ class Genre
   attr_accessor :name, :items
 
   def initialize(params = {})
-    @id = params['id'] || SecureRandom.uuid
-    @name = params['name']
-    @items = params['items'] || []
+    @id = params[:id] || SecureRandom.uuid
+    @name = params[:name]
+    @items = params[:items] || []
   end
 
   def add_item(item)
@@ -17,10 +17,10 @@ class Genre
 
   def to_json(*_args)
     {
-      'json_class' => self.class.name,
-      'id' => @id,
-      'name' => @name,
-      'items' => @items.map(&:id)
+      json_class: self.class.name,
+      id: @id,
+      name: @name,
+      items: @items.map(&:id)
     }.to_json
   end
 end

@@ -3,13 +3,13 @@ require_relative '../classes/game'
 describe Game do
   before(:each) do
     @game = Game.new(
-      'publish_date' => (Date.today - (11 * 365)).strftime,
-      'last_played_at' => (Date.today - (3 * 365)).strftime
+      publish_date: (Date.today - (11 * 365)).strftime,
+      last_played_at: (Date.today - (3 * 365)).strftime
     )
 
     @game_played_recent = Game.new(
-      'publish_date' => (Date.today - (5 * 365)).strftime,
-      'last_played_at' => (Date.today - (3 * 365)).strftime
+      publish_date: (Date.today - (5 * 365)).strftime,
+      last_played_at: (Date.today - (3 * 365)).strftime
     )
   end
 

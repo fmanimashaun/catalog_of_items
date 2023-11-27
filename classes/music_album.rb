@@ -6,7 +6,7 @@ class MusicAlbum < Item
 
   def initialize(params = {})
     super(params)
-    @on_spotify = params['on_spotify'] || false
+    @on_spotify = params[:on_spotify] || false
   end
 
   def can_be_archived?
@@ -15,21 +15,21 @@ class MusicAlbum < Item
 
   def to_json(*_args)
     json_obj = {
-      'json_class' => self.class.name,
-      'id' => @id,
-      'on_spotify' => @on_spotify,
-      'publish_date' => @publish_date,
-      'archived' => @archived
+      json_class: self.class.name,
+      id: @id,
+      on_spotify: @on_spotify,
+      publish_date: @publish_date,
+      archived: @archived
     }
     json_obj.to_json
   end
 
   def self.json_create(object)
     new({
-          'id' => object['id'],
-          'on_spotify' => object['on_spotify'],
-          'publish_date' => object['publish_date'],
-          'archived' => object['archived']
+          id: object[:id],
+          on_spotify: object[:on_spotify],
+          publish_date: object[:publish_date],
+          archived: object[:archived]
         })
   end
 end

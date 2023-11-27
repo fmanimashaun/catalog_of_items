@@ -58,9 +58,9 @@ module Load
 
     JSON.parse(File.read('data/genres.json')).each do |genre_json|
       genre_obj = JSON.parse(genre_json)
-      genre = Genre.new('name' => genre_obj['name'])
+      genre = Genre.new(name: genre_obj[:name])
 
-      genre_obj['items'].each do |id|
+      genre_obj[:items].each do |id|
         item = items_hash[id]
         genre.add_item(item) unless item.nil?
       end
@@ -78,9 +78,9 @@ module Load
 
     JSON.parse(File.read('data/labels.json')).each do |label_json|
       label_obj = JSON.parse(label_json)
-      label = Label.new('title' => label_obj['title'], 'color' => label_obj['color'])
+      label = Label.new(title: label_obj[:title], color: label_obj[:color])
 
-      label_obj['items'].each do |id|
+      label_obj[:items].each do |id|
         item = items_hash[id]
         label.add_item(item) unless item.nil?
       end
@@ -98,9 +98,9 @@ module Load
 
     JSON.parse(File.read('data/authors.json')).each do |author_json|
       author_obj = JSON.parse(author_json)
-      author = Author.new('first_name' => author_obj['first_name'], 'last_name' => author_obj['last_name'])
+      author = Author.new(first_name: author_obj[:first_name], last_name: author_obj[:last_name])
 
-      author_obj['items'].each do |id|
+      author_obj[:items].each do |id|
         item = items_hash[id]
         author.add_item(item) unless item.nil?
       end
@@ -118,9 +118,9 @@ module Load
 
     JSON.parse(File.read('data/sources.json')).each do |source_json|
       source_obj = JSON.parse(source_json)
-      source = Source.new('name' => source_obj['name'])
+      source = Source.new(name: source_obj[:name])
 
-      source_obj['items'].each do |id|
+      source_obj[:items].each do |id|
         item = items_hash[id]
         source.add_item(item) unless item.nil?
       end

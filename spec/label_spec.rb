@@ -4,13 +4,13 @@ require_relative '../classes/item'
 describe Label do
   before(:each) do
     @label = Label.new(
-      'title' => 'New',
-      'color' => 'green',
-      'items' => []
+      title: 'New',
+      color: 'green',
+      items: []
     )
 
     @item = Item.new(
-      'publish_date' => '1967-01-01'
+      publish_date: '1967-01-01'
     )
   end
 

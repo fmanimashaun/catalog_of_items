@@ -4,13 +4,13 @@ require_relative '../classes/item'
 describe Author do
   before(:each) do
     @author = Author.new(
-      'first_name' => 'Rowling',
-      'last_name' => 'J. K.',
-      'items' => []
+      first_name: 'Rowling',
+      last_name: 'J. K.',
+      items: []
     )
 
     @item = Item.new(
-      'publish_date' => '1967-01-01'
+      publish_date: '1967-01-01'
     )
   end
 
